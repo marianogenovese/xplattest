@@ -1,4 +1,4 @@
-#os: osx
+os: osx
 language: csharp
 mono:
   - latest
@@ -18,7 +18,7 @@ mono:
 #    - extra
 
 install:
-  - mono nuget restore testxplat.sln
+  - nuget restore testxplat.sln
   #- xbuild /t:SignAndroidPackage /p:Configuration=Release Droid/solution-name.Droid.csproj
   #- xbuild /p:Configuration="Release" /p:Platform="iPhone" /p:IpaPackageDir="$HOME/Builds" /t:Build testxplat.sln
 
