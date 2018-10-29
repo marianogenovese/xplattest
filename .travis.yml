@@ -15,7 +15,7 @@ android:
     - extra
 
 install:
-  - nuget restore testxplat.sln
+  - mono nuget restore testxplat.sln
   #- xbuild /t:SignAndroidPackage /p:Configuration=Release Droid/solution-name.Droid.csproj
   #- xbuild /p:Configuration="Release" /p:Platform="iPhone" /p:IpaPackageDir="$HOME/Builds" /t:Build testxplat.sln
 
