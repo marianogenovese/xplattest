@@ -1,18 +1,21 @@
-os: osx
-language: xamarin
-solution: testxplat
-osx_image: xcode9.4
-
+#os: osx
+language: csharp
 mono:
-  mdk: 4.6.2
-  android: 7.0.2-42
-  ios: 10.3.1.8
+  - latest
+#solution: testxplat
+#osx_image: xcode9.4
 
-android:
-  components:
-    - build-tools-25.0.1
-    - android-24
-    - extra
+#mono:
+# - latest
+#  mdk: 4.6.2
+#  android: 7.0.2-42
+#  ios: 10.3.1.8
+
+#android:
+#  components:
+#    - build-tools-25.0.1
+#    - android-24
+#    - extra
 
 install:
   - mono nuget restore testxplat.sln
