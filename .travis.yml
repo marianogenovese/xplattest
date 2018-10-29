@@ -1,6 +1,7 @@
 os: osx
 language: xamarin
 solution: solution-name
+osx_image: xcode9.4
 
 mono:
   mdk: 4.6.2
@@ -12,8 +13,6 @@ android:
     - build-tools-25.0.1
     - android-24
     - extra
-
-osx_image: xcode8.2
 
 install:
   - nuget restore testxplat.sln
