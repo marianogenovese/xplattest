@@ -39,9 +39,11 @@ android:
 install:
   - nuget restore testxplat.sln
   - sudo apt-get update
-  - sudo apt-get install autotools-dev
-  - sudo apt-get install automake autoconf
+  #- sudo apt-get install autotools-dev
+  #- sudo apt-get install automake autoconf
   - git clone https://github.com/xamarin/xamarin-android.git
+  - sudo chmod 777 ./xamarin-android/build-tools/scripts/dependencies/debian-common.sh
+  - sudo sh ./xamarin-android/build-tools/scripts/dependencies/debian-common.sh
   - cd xamarin-android
   - make prepare MSBUILD=msbuild
   - make MSBUILD=msbuild
