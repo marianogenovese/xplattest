@@ -40,4 +40,4 @@ install:
   #- xbuild /p:Configuration="Release" /p:Platform="iPhone" /p:IpaPackageDir="$HOME/Builds" /t:Build testxplat.sln
 
 script:
-  - msbuild /t:restore /p:Configuration=Release testxplat.sln
+  - msbuild /p:Configuration=Release testxplat.sln
