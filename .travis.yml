@@ -38,6 +38,7 @@ android:
 
 install:
   - nuget restore testxplat.sln
+  - sudo apt-get update
   - sudo apt-get install libz-mingw-w64-dev libzip4
   - git clone https://github.com/xamarin/xamarin-android.git
   - cd xamarin-android
