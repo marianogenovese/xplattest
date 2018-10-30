@@ -44,7 +44,7 @@ install:
   - git clone https://github.com/xamarin/xamarin-android.git
   #- sudo chmod 777 ./xamarin-android/build-tools/scripts/dependencies/debian-common.sh
   #- sudo sh ./xamarin-android/build-tools/scripts/dependencies/debian-common.sh
-  - source ./xamarin-android/build-tools/scripts/dependencies/debian-common.sh; debian_install
+  - source ./xamarin-android/build-tools/scripts/dependencies/linux-prepare-Ubuntu.sh
   - cd xamarin-android
   - make prepare MSBUILD=msbuild
   - make MSBUILD=msbuild
