@@ -1,5 +1,7 @@
 #os: osx
 #os: windows
+os: linux
+dist: xenial
 language: csharp
 sudo: required
 mono:
@@ -44,8 +46,8 @@ install:
   - git clone https://github.com/xamarin/xamarin-android.git
   #- sudo chmod 777 ./xamarin-android/build-tools/scripts/dependencies/debian-common.sh
   #- sudo sh ./xamarin-android/build-tools/scripts/dependencies/debian-common.sh
-  - sudo chmod 777 ./xamarin-android/build-tools/scripts/dependencies/linux-prepare-Ubuntu.sh
-  - ./xamarin-android/build-tools/scripts/dependencies/linux-prepare-Ubuntu.sh 14.04
+  #- sudo chmod 777 ./xamarin-android/build-tools/scripts/dependencies/linux-prepare-Ubuntu.sh
+  #- ./xamarin-android/build-tools/scripts/dependencies/linux-prepare-Ubuntu.sh 14.04
   - cd xamarin-android
   - make prepare MSBUILD=msbuild
   - make MSBUILD=msbuild
