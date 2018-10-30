@@ -38,10 +38,10 @@ android:
 install:
   - nuget restore testxplat.sln
   - git clone https://github.com/xamarin/xamarin-android.git
-    cd xamarin-android
-    make prepare MSBUILD=msbuild
-    make MSBUILD=msbuild
-    xabuild
+  - cd xamarin-android
+  - make prepare MSBUILD=msbuild
+  - make MSBUILD=msbuild
+  - xabuild
     
   #- xbuild /t:SignAndroidPackage /p:Configuration=Release Droid/solution-name.Droid.csproj
   #- xbuild /p:Configuration="Release" /p:Platform="iPhone" /p:IpaPackageDir="$HOME/Builds" /t:Build testxplat.sln
