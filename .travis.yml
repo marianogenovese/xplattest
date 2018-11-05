@@ -1,0 +1,60 @@
+#os: osx
+#os: windows
+os: linux
+dist: xenial
+language: csharp
+sudo: required
+mono:
+  - latest
+#solution: testxplat
+#osx_image: xcode9.4
+
+#mono:
+# - latest
+#  mdk: 4.6.2
+#  android: 7.0.2-42
+#  ios: 10.3.1.8
+
+#android:
+#  components:
+#    - build-tools-25.0.1
+#    - android-24
+#    - extra
+
+env:
+ global:
+ - ANDROID_API=27
+ - ANDROID_BUILD_TOOLS=27.0.3
+
+android:
+  components:
+    - tools
+    - platform-tools
+    - build-tools-$ANDROID_BUILD_TOOLS
+    - android-$ANDROID_API
+    - extra-google-m2repository
+    - extra-android-m2repository
+  licenses:
+    - 'android-sdk-license-.+'
+    - 'google-gdk-license-.+'
+
+install:
+  - nuget restore testxplat.sln
+  - sudo apt-get update
+  #- sudo apt-get install autotools-dev
+  #- sudo apt-get install automake autoconf
+  - git clone https://github.com/xamarin/xamarin-android.git
+  #- sudo chmod 777 ./xamarin-android/build-tools/scripts/dependencies/debian-common.sh
+  #- sudo sh ./xamarin-android/build-tools/scripts/dependencies/debian-common.sh
+  #- sudo chmod 777 ./xamarin-android/build-tools/scripts/dependencies/linux-prepare-Ubuntu.sh
+  #- ./xamarin-android/build-tools/scripts/dependencies/linux-prepare-Ubuntu.sh 14.04
+  - cd xamarin-android
+  - make prepare MSBUILD=msbuild
+  - make MSBUILD=msbuild
+  - xabuild
+    
+  #- xbuild /t:SignAndroidPackage /p:Configuration=Release Droid/solution-name.Droid.csproj
+  #- xbuild /p:Configuration="Release" /p:Platform="iPhone" /p:IpaPackageDir="$HOME/Builds" /t:Build testxplat.sln
+
+script:
+  - msbuild /p:Configuration=Release testxplat.sln
