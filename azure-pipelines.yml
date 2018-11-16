@@ -11,6 +11,11 @@ variables:
   outputDirectory: '$(build.binariesDirectory)/$(buildConfiguration)'
 
 steps:
+- task: DownloadSecureFile@1
+  displayName: 'Download secure file'
+  inputs:
+  secureFile: 'local.keystore'
+
 - task: NuGetToolInstaller@0
 
 - task: NuGetCommand@2
@@ -26,3 +31,7 @@ steps:
 - task: AndroidSigning@3
   inputs:
     apkFiles: '$(outputDirectory)/*.apk'
+    apksignerKeystoreFile: '$(Agent.TempDirectory)/local.keystore'
+    apksignerKeystorePassword: '123456'
+    apksignerKeystoreAlias: 'local'
+    apksignerKeyPassword: '123456'
