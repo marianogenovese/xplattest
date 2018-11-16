@@ -12,9 +12,8 @@ variables:
 
 steps:
 - task: DownloadSecureFile@1
-  displayName: 'Download secure file'
   inputs:
-  secureFile: 'local.keystore'
+    secureFile: 'local.keystore'
 
 - task: NuGetToolInstaller@0
 
